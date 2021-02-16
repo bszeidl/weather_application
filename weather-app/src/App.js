@@ -1,6 +1,5 @@
 import "./scss/main.scss";
 import React, { useState } from "react";
-//import { useWeather } from "./components/fetch";
 
 const API = {
   key: "b0a23f6e90480e33936456139644bff5",
@@ -9,14 +8,21 @@ const API = {
 
 function App() {
 
-  /*
-  const [newCity, setNewCity] = useState();
-  const city = useWeather(newCity);
+const [newCity, setNewCity] = useState();
+const [weather, setWeather] = useState({});
 
-  const changeCity = (event) => {
-    setNewCity(event.target.value);
-  };
-*/
+const search = event => {
+  if(event.key === "Enter") {
+    fetch(`${API.base}weather?q=${newCity}&units=metric&APPID=${API.key}`)
+      .then(res => res.json())
+      .then(result => {
+        setWeather(result)
+        setNewCity("");
+        console.log(result);
+      });
+  }
+}
+
   return (
     <div className="App">
       <div className="main">
@@ -25,33 +31,26 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Search..."
+            onChange={e =>setNewCity(e.target.value)}
+            value={newCity}
+            onKeyPress={search}
           />
         </div>
-        <div className="location-container">
-          <div className="location">Budapest, HU</div>
-          <div className="humidity"></div>
+        {(typeof weather.main != "undefined") ? ( 
+        <div>
+          <div className="location-container">
+            <div className="location">{weather.name}</div>
+            <div className="humidity"></div>
+          </div>
+          <div className="weather-container">
+            <div className="temp">{Math.round(weather.main.temp)}°C</div>
+            <div className="weather">{weather.weather[0].main}</div>
+            <div className="humidity">{weather.main.humidity}%</div>
+          </div>
         </div>
+         ) : ("")}
       </div>
-  
 
-
-
-      {/*
-     <label htmlFor="cities">Choose a city:</label>
-
-      <select name="cities" id="cities" onChange={changeCity}>
-        <option value="London">London</option>
-        <option value="Budapest">Budapest</option>
-        <option value="Köln">Köln</option>
-        <option value="Sydney">Sydney</option>
-        <option value="Detroit">Detroit</option>
-      </select>
-      <div>
-        {city === "Loading..."
-          ? "Placeholder text"
-          : `Temp: ${city.list[0].main.temp} ℃`}
-      </div>
-      */}
     </div>
   );
 }

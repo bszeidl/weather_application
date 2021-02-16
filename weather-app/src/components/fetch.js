@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+/*import { useState, useEffect } from "react";
 
 export const useFetch = (initUrl) => {
   const [url, setUrl] = useState(initUrl);
@@ -27,3 +27,4 @@ export const useWeather = (city = "London") => {
   }, [city]);
   return weather === undefined ? "Loading..." : weather;
 };
+*/
