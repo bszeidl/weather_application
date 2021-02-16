@@ -1,5 +1,6 @@
 import "./scss/main.scss";
 import React, { useState } from "react";
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 const API = {
   key: "b0a23f6e90480e33936456139644bff5",
@@ -27,13 +28,19 @@ const search = event => {
     <div className="App">
       <div className="main">
         <div className="input-container">
-          <input
+          {/*<input
             type="text"
             className="search-bar"
             placeholder="Search..."
             onChange={e =>setNewCity(e.target.value)}
             value={newCity}
             onKeyPress={search}
+          />*/}
+          <GooglePlacesAutocomplete
+            onChange={e =>setNewCity(e.target.value)}
+            value={newCity}
+            onKeyPress={search}
+            apiKey="AIzaSyDF-hI9NJYO3fDYt6fDCyRwtHi0wPyckWc"
           />
         </div>
         {(typeof weather.main != "undefined") ? ( 
@@ -45,7 +52,7 @@ const search = event => {
           <div className="weather-container">
             <div className="temp">{Math.round(weather.main.temp)}°C</div>
             <div className="weather">{weather.weather[0].main}</div>
-            <div className="humidity">{weather.main.humidity}%</div>
+            <div className="humidity">Humidity {weather.main.humidity}%</div>
           </div>
         </div>
          ) : ("")}
