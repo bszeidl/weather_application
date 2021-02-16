@@ -15,21 +15,23 @@ function App() {
   };
 
   const changeListCity = (event) => {
-    setListItemCity(event.target.value);
+    if (event.key === "Enter") {
+      setListItemCity(event.target.value);
+    }
   };
 
   return (
     <div className="App">
       <div>
-        <label htmlFor="browser">Choose a city from the list:</label>
+        <label htmlFor="cityList">Choose a city from the list:</label>
         <input
-          list="browsers"
-          name="browser"
-          id="browser"
-          onChange={changeListCity}
+          list="cityList"
+          name="cityList"
+          id="cityList"
+          onKeyDown={changeListCity}
         />
 
-        <datalist id="browsers">
+        <datalist id="cityList">
           {cities.map((option) => (
             <option key={option.name + option.lat} value={option.name}>
               {option.name}
