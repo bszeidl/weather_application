@@ -24,14 +24,9 @@ function App() {
     <div className="App">
       <div>
         <label htmlFor="cityList">Choose a city from the list:</label>
-        <input
-          list="cityList"
-          name="cityList"
-          id="cityList"
-          onKeyDown={changeListCity}
-        />
+        <input list="listOfCities" id="cityList" onKeyDown={changeListCity} />
 
-        <datalist id="cityList">
+        <datalist id="listOfCities">
           {cities.map((option) => (
             <option key={option.name + option.lat} value={option.name}>
               {option.name}
