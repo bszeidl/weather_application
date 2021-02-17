@@ -1,7 +1,7 @@
 import "./scss/main.scss";
 import { useState } from "react";
 import { useWeather } from "./components/fetch";
-import data from "./data/citylist.json";
+import data from "./data/betterCityList.json";
 
 function App() {
   const [newCity, setNewCity] = useState();
@@ -28,7 +28,7 @@ function App() {
 
         <datalist id="listOfCities">
           {cities.map((option) => (
-            <option key={option.name + option.lat} value={option.name}>
+            <option key={option.geonameid} value={option.name}>
               {option.name}
             </option>
           ))}
