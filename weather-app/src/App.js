@@ -9,6 +9,7 @@ function App() {
   const [listItemCity, setListItemCity] = useState("London");
   const city2 = useWeather(listItemCity);
   const cities = data;
+  const [listInputValue, setListInputValue] = useState("");
 
   const changeCity = (event) => {
     setNewCity(event.target.value);
@@ -17,6 +18,7 @@ function App() {
   const changeListCity = (event) => {
     if (event.key === "Enter") {
       setListItemCity(event.target.value);
+      setListInputValue(event.target.value);
     }
   };
 
@@ -33,11 +35,17 @@ function App() {
             </option>
           ))}
         </datalist>
-        <h2>
-          {city2 === "Loading..."
-            ? "Placeholder text"
-            : `Temp: ${city2.list[0].main.temp} ℃`}
-        </h2>
+        <div>
+          {city2 === "Loading..." || listInputValue === "" ? (
+            "Placeholder text"
+          ) : (
+            <div>
+              <h2> Temp: {city2.list[0].main.temp} ℃ </h2>
+              <h2> Sky Condition: {city2.list[0].weather[0].main}</h2>
+              <h2> Humidity: {city2.list[0].main.humidity}%</h2>
+            </div>
+          )}
+        </div>
       </div>
 
       <label htmlFor="cities">Choose a city:</label>
@@ -50,9 +58,15 @@ function App() {
         <option value="Detroit">Detroit</option>
       </select>
       <div>
-        {city === "Loading..."
-          ? "Placeholder text"
-          : `Temp: ${city.list[0].main.temp} ℃`}
+        {city === "Loading..." ? (
+          "Placeholder text"
+        ) : (
+          <div>
+            <h2> Temp: {city.list[0].main.temp} ℃ </h2>
+            <h2> Sky Condition: {city.list[0].weather[0].main}</h2>
+            <h2> Humidity: {city.list[0].main.humidity}%</h2>
+          </div>
+        )}
       </div>
     </div>
   );
