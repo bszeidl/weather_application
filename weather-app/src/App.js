@@ -5,6 +5,7 @@ import data from "./data/betterCityList.json";
 import FavCity from "./components/FavCity/FavCity";
 import MainCities from "./components/MainCities/MainCities";
 import Output from "./components/Output/Output";
+import DateBuild from "./components/DateBuild/DateBuild";
 
 function App() {
   const [newCity, setNewCity] = useState();
@@ -28,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="app-h1">Weather App</h1>
-      <h2 className="app-h2">Dátum</h2>
+      <DateBuild/>
       <div className="fav-container">
         <FavCity change={changeCity}/>
         <Output
