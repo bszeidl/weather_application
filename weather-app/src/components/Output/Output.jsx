@@ -3,7 +3,7 @@ import React from 'react'
 function Output({cityOut, inputValue}) {
   return (
     <div className="output-container">
-      {cityOut === "Loading..." || inputValue === "" ? (
+      {cityOut === "Loading..." || inputValue === "" || cityOut.list[0] === undefined ? (
           <h2>Press Enter</h2>
         ) : (
           <div className="output">

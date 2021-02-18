@@ -7,7 +7,7 @@ export const useFetch = (initUrl) => {
   useEffect(() => {
     fetch(url)
       .then((response) => {
-        if (response.status !== 200) return "There must be a problem";
+        if (response.status !== 200) return;
         return response.json();
       })
       .then((json) => setData(json));
