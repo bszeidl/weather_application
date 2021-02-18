@@ -8,20 +8,20 @@ import Output from "./components/Output/Output";
 import DateBuild from "./components/DateBuild/DateBuild";
 
 function App() {
-  const [newCity, setNewCity] = useState();
-  const city = useWeather(newCity);
-  const [listItemCity, setListItemCity] = useState("London");
-  const city2 = useWeather(listItemCity);
+  const [dropDownCity, setDropDownCity] = useState();
+  const favCity = useWeather(dropDownCity);
+  const [dataListCity, setDataListCity] = useState("London");
+  const mainCity = useWeather(dataListCity);
   const cities = data;
   const [listInputValue, setListInputValue] = useState("");
 
-  const changeCity = (event) => {
-    setNewCity(event.target.value);
+  const changeDropDownCity = (event) => {
+    setDropDownCity(event.target.value);
   };
 
-  const changeListCity = (event) => {
+  const changeDataListCity = (event) => {
     if (event.key === "Enter") {
-      setListItemCity(event.target.value);
+      setDataListCity(event.target.value);
       setListInputValue(event.target.value);
     }
   };
@@ -29,24 +29,15 @@ function App() {
   return (
     <div className="App">
       <h1 className="app-h1">Weather App</h1>
-      <DateBuild/>
+      <DateBuild />
       <div className="container">
         <div className="fav-container">
-          <FavCity change={changeCity}/>
-          <Output
-            cityOut={city}
-            inputValue={"."}
-          />
+          <FavCity change={changeDropDownCity} />
+          <Output cityOut={favCity} inputValue={"."} />
         </div>
         <div className="main-container">
-          <MainCities 
-            change={changeListCity}
-            mainCities={cities}
-          />
-          <Output
-            cityOut={city2}
-            inputValue={listInputValue}
-          />
+          <MainCities change={changeDataListCity} mainCities={cities} />
+          <Output cityOut={mainCity} inputValue={listInputValue} />
         </div>
       </div>
     </div>
