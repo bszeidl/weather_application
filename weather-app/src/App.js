@@ -30,22 +30,24 @@ function App() {
     <div className="App">
       <h1 className="app-h1">Weather App</h1>
       <DateBuild/>
-      <div className="fav-container">
-        <FavCity change={changeCity}/>
-        <Output
-          cityOut={city}
-          inputValue={"."}
-        />
-      </div>
-      <div className="main-container">
-        <MainCities 
-          change={changeListCity}
-          mainCities={cities}
-        />
-        <Output
-          cityOut={city2}
-          inputValue={listInputValue}
-        />
+      <div className="container">
+        <div className="fav-container">
+          <FavCity change={changeCity}/>
+          <Output
+            cityOut={city}
+            inputValue={"."}
+          />
+        </div>
+        <div className="main-container">
+          <MainCities 
+            change={changeListCity}
+            mainCities={cities}
+          />
+          <Output
+            cityOut={city2}
+            inputValue={listInputValue}
+          />
+        </div>
       </div>
     </div>
   );

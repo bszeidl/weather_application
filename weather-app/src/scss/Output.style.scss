@@ -5,6 +5,11 @@
     font-size: 1.3vw;
     font-weight: 300;
     font-style: italic;
+
+    @media screen and (max-width: 720px) {
+      padding-top: 20px;
+      font-size: 21px;
+    }
   }
 
   h3 {
@@ -14,9 +19,17 @@
     font-weight: 400;
     letter-spacing: 0.15vw;
     font-style: italic;
+
+    @media screen and (max-width: 720px) {
+      font-size: 19px;
+    }
   }
   .temp {
     font-size: 2.1vw;
     font-weight: 500;
+
+    @media screen and (max-width: 720px) {
+      font-size: 30px;
+    }
   }
 }

@@ -4,7 +4,7 @@ function Output({cityOut, inputValue}) {
   return (
     <div className="output-container">
       {cityOut === "Loading..." || inputValue === "" || cityOut.list[0] === undefined ? (
-          <h2>Press Enter</h2>
+          <h2 className="">Press Enter</h2>
         ) : (
           <div className="output">
             <h3 className="temp"> {Math.round(cityOut.list[0].main.temp)} ℃ </h3>

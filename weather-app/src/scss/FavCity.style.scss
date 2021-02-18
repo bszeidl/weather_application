@@ -1,7 +1,29 @@
 .fav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   width: 50%;
   height: 70%;
   text-shadow: 2px 2px 4px #000000;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
+
+  .cities-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1.5vw 0vw;
+    width: 32vw;
+
+    @media screen and (max-width: 720px) {
+      width: 105%;
+    }
+  }
 
   .fav-h2 {
     padding: 1.5vw;
@@ -9,11 +31,20 @@
     font-size: 2.3vw;
     font-weight: 700;
     letter-spacing: 0.15vw;
+
+    @media screen and (max-width: 720px) {
+      font-size: 30px;
+    }
   }
 
   label {
+    width: 50%;
     font-size: 1.5vw;
     font-weight: 400;
+
+    @media screen and (max-width: 720px) {
+      font-size: 23px;
+    }
   }
 
   select {
@@ -24,13 +55,16 @@
     width: 12vw;
     background: transparent;
 
-    margin: 1.5vw;
-
     color: white;
     font-size: 1.8vw;
     font-weight: 400;
     font-family: "Ubuntu", sans-serif;
     text-shadow: 2px 2px 4px #000000;
+
+    @media screen and (max-width: 720px) {
+      font-size: 23px;
+      width: 150px;
+    }
 
     &:hover {
       color: rgba(255, 255, 255, 0.514);
@@ -38,6 +72,10 @@
 
     option {
       color: black;
+
+      @media screen and (max-width: 720px) {
+        padding-left: 8vw;
+      }
     }
   }
 }
