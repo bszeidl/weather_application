@@ -4,14 +4,14 @@ function FavCity({change}) {
   
   return (
     <div>
-      <h2>Favorite Cities</h2>
-      <label htmlFor="cities">Choose a city:</label>
+      <h2 className="fav-h2">Favorite Cities</h2>
+      <label htmlFor="cities">Choose a city: </label>
       <select name="cities" id="cities" onChange={change}>
-        <option value="London">London</option>
-        <option value="Budapest">Budapest</option>
-        <option value="Köln">Köln</option>
-        <option value="Sydney">Sydney</option>
-        <option value="Detroit">Detroit</option>
+        <option value="London">Budapest</option>
+        <option value="Budapest">Sonkád</option>
+        <option value="Köln">Bugyi</option>
+        <option value="Sydney">Ondód</option>
+        <option value="Detroit">Makkoshotyka</option>
       </select>
     </div>
   )

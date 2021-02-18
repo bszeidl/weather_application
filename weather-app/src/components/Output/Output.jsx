@@ -2,14 +2,14 @@ import React from 'react'
 
 function Output({cityOut, inputValue}) {
   return (
-    <div>
+    <div className="output-container">
       {cityOut === "Loading..." || inputValue === "" ? (
-          "Placeholder text"
+          <h2>Press Enter</h2>
         ) : (
-          <div>
-            <h2> Temp: {cityOut.list[0].main.temp} ℃ </h2>
-            <h2> Sky Condition: {cityOut.list[0].weather[0].main}</h2>
-            <h2> Humidity: {cityOut.list[0].main.humidity}%</h2>
+          <div className="output">
+            <h3 className="temp"> {cityOut.list[0].main.temp} ℃ </h3>
+            <h3> {cityOut.list[0].weather[0].main}</h3>
+            <h3> Humidity: {cityOut.list[0].main.humidity}%</h3>
           </div>
         )}
     </div>

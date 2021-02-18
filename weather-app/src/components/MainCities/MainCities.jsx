@@ -3,9 +3,9 @@ import React from 'react'
 function MainCities({change,mainCities }) {
   return (
     <div>
-      <h1>Weather App</h1>
-      <label htmlFor="cityList">Choose a city from the list:</label>
-      <input list="listOfCities" id="cityList" onKeyDown={change} />
+      <h2 className="main-h2">City List</h2>
+      <label className="main-label" htmlFor="cityList"></label>
+      <input placeholder="Write or Select a City" list="listOfCities" id="cityList" onKeyDown={change} />
 
       <datalist id="listOfCities">
         {mainCities.map((option) => (

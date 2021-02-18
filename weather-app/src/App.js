@@ -27,7 +27,15 @@ function App() {
 
   return (
     <div className="App">
-
+      <h1 className="app-h1">Weather App</h1>
+      <h2 className="app-h2">Dátum</h2>
+      <div className="fav-container">
+        <FavCity change={changeCity}/>
+        <Output
+          cityOut={city}
+          inputValue={"."}
+        />
+      </div>
       <div className="main-container">
         <MainCities 
           change={changeListCity}
@@ -38,15 +46,6 @@ function App() {
           inputValue={listInputValue}
         />
       </div>
-
-      <div className="fav-container">
-        <FavCity change={changeCity}/>
-        <Output
-          cityOut={city}
-          inputValue={"."}
-        />
-      </div>
-
     </div>
   );
 }
