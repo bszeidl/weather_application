@@ -2,8 +2,9 @@ import "./scss/main.scss";
 import React, { useState } from "react";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
+// ide kell beírni az api kulcsot:
 const API = {
-  key: "b0a23f6e90480e33936456139644bff5",
+  key: "",
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
